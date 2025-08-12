@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy News Sentiment Analysis</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { text-align: center; }
+        .form-container { margin-bottom: 20px; }
+        textarea { width: 100%; height: 100px; }
+        .result { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Energy News Sentiment Analysis</h1>
+    <div class="form-container">
+        <form method="POST">
+            <label><input type="radio" name="input_type" value="text" checked> Enter Text</label>
+            <label><input type="radio" name="input_type" value="url"> Enter URL</label><br><br>
+            <textarea name="text" placeholder="Enter news article text or URL">{{ input_text }}</textarea><br>
+            <input type="text" name="url" placeholder="Enter article URL" style="width: 100%;"><br><br>
+            <button type="submit">Analyze Sentiment</button>
+        </form>
+    </div>
+    {% if sentiment_result %}
+    <div class="result">
+        <h3>Result:</h3>
+        <p><strong>Sentiment:</strong> {{ sentiment_result.label }}</p>
+        <p><strong>Confidence:</strong> {{ sentiment_result.score }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
