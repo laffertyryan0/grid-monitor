@@ -1,1 +1,5 @@
 myenv/
+infra/*.backup
+infra/*.tfstate
+.terraform/
+*.lock.hcl
